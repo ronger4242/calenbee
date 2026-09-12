@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About us — Calenbee</title>
+<meta name="description" content="The story behind Calenbee: built by a data scientist and mom of two who was tired of typing every school schedule into her phone.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#FBF3D9;
+    --honey:#F0C94A;
+    --honey-soft:#F6DF9B;
+    --navy:#2D2A4A;
+    --navy-soft:#54506F;
+    --white:#FFFDF6;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{
+    font-family:'Nunito',system-ui,sans-serif;
+    background:var(--cream);
+    color:var(--navy);
+    line-height:1.7;
+  }
+  a{color:inherit}
+  .wrap{max-width:960px;margin:0 auto;padding:0 24px}
+
+  nav{padding:20px 0}
+  .nav-row{display:flex;align-items:center;justify-content:space-between}
+  .logo{display:flex;align-items:center;gap:10px;font-weight:900;font-size:1.35rem;text-decoration:none}
+  .logo-mark{
+    width:38px;height:38px;border-radius:10px;background:var(--honey);
+    display:grid;place-items:center;font-size:1.05rem;font-weight:900;color:var(--navy);
+  }
+  .nav-links{display:flex;gap:26px;font-weight:700}
+  .nav-links a{text-decoration:none;padding:6px 2px;border-bottom:3px solid transparent}
+  .nav-links a:hover,.nav-links a:focus-visible{border-bottom-color:var(--honey)}
+  .nav-links a.active{border-bottom-color:var(--navy)}
+
+  header.page{padding:56px 0 8px;text-align:center}
+  header.page h1{font-weight:900;font-size:clamp(1.9rem,4.5vw,2.8rem);margin-bottom:8px}
+  header.page p{color:var(--navy-soft);font-weight:600}
+
+  article{max-width:640px;margin:40px auto 0;padding:0 24px}
+  article p{margin-bottom:22px;font-size:1.08rem}
+  article .pull{
+    background:var(--honey-soft);border-radius:18px;padding:22px 26px;
+    font-weight:800;font-size:1.15rem;line-height:1.5;margin:30px 0;
+    text-align:center;
+  }
+  article .sig{
+    color:var(--navy-soft);font-weight:700;
+  }
+
+  .cta{
+    max-width:640px;margin:48px auto 0;padding:0 24px;text-align:center;
+  }
+  .cta .box{
+    background:var(--navy);color:var(--cream);border-radius:24px;padding:34px 28px;
+  }
+  .cta h2{font-weight:900;font-size:1.4rem;margin-bottom:8px}
+  .cta p{color:#D8D3E8;margin-bottom:20px}
+  .store-btn{
+    display:inline-block;background:var(--honey);color:var(--navy);
+    text-decoration:none;font-weight:800;padding:13px 24px;border-radius:999px;
+  }
+  .store-btn:hover,.store-btn:focus-visible{background:var(--honey-soft)}
+
+  footer{padding:44px 0 56px;text-align:center;color:var(--navy-soft);font-weight:600;font-size:.92rem}
+  footer a{font-weight:800}
+</style>
+</head>
+<body>
+
+<nav class="wrap">
+  <div class="nav-row">
+    <a class="logo" href="index.html"><span class="logo-mark">C</span>Calenbee</a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html" class="active">About us</a>
+    </div>
+  </div>
+</nav>
+
+<header class="page wrap">
+  <h1>Why Calenbee exists</h1>
+  <p>Built by a parent, for parents. 🐝</p>
+</header>
+
+<article>
+  <p>No more typing events into your calendar. Snap it — or just say it.</p>
+  <p>School flyers, birthday invitations, handwritten notes — Calenbee turns any photo into calendar events. Or just tell it: "Chess class every Sunday 6–7pm until Dec 14." Done.</p>
+  <div class="pull">I built Calenbee because, as a data scientist and a mom of two, I was tired of manually typing every school calendar and soccer schedule into my phone.</div>
+  <p>Every school year starts the same way: a stack of flyers, a soccer schedule, a class calendar taped to the fridge — and an evening lost to typing it all into a phone, one event at a time. Calenbee started as a small tool to get that evening back.</p>
+  <p>It does one thing well: it reads whatever life hands you — a photo, a screenshot, a spoken sentence — finds the events inside, and puts them where they belong. You review everything before it touches your calendar. Nothing is added without your OK.</p>
+  <p class="sig">— Shengnan Zhao, creator of Calenbee</p>
+</article>
+
+<div class="cta">
+  <div class="box">
+    <h2>Try Calenbee free for a week</h2>
+    <p>Snap it or say it — it's on your calendar.</p>
+    <a class="store-btn" href="https://apps.apple.com/us/app/calenbee/id6796809521">Download on the App Store</a>
+  </div>
+</div>
+
+<footer class="wrap">
+  <p>Calenbee · <a href="https://apps.apple.com/us/app/calenbee/id6796809521">App Store</a> · <a href="index.html">Home</a></p>
+</footer>
+
+</body>
+</html>
