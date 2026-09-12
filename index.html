@@ -1,71 +1,178 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Calenbee</title>
-<meta name="description" content="Calenbee is an iPhone app that turns photos, voice notes, and typed notes into Google Calendar events.">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calenbee — Snap it or say it. It's on your calendar.</title>
+<meta name="description" content="Calenbee turns photos of flyers, invitations, and notes into Google Calendar events. Or just say it. Built by a parent, for parents.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;900&display=swap" rel="stylesheet">
 <style>
-  body { font-family: -apple-system, system-ui, sans-serif; background: #FBF3DC; color: #2E2A4F; margin: 0; padding: 40px 20px; line-height: 1.7; }
-  main { max-width: 660px; margin: 0 auto; }
-  h1 { font-size: 44px; margin: 0 0 4px; }
-  .tag { color: #6b6550; font-size: 19px; margin: 0 0 26px; }
-  h2 { font-size: 22px; margin: 32px 0 10px; }
-  ul { padding-left: 22px; }
-  li { margin-bottom: 10px; }
-  a { color: #8A6D1C; }
-  .purpose { background: #FFFFFF; border-radius: 14px; padding: 18px 20px; }
-  footer { margin-top: 44px; padding-top: 20px; border-top: 1px solid #E4DCC2; font-size: 14px; color: #8B8570; }
+  :root{
+    --cream:#FBF3D9;
+    --honey:#F0C94A;
+    --honey-soft:#F6DF9B;
+    --navy:#2D2A4A;
+    --navy-soft:#54506F;
+    --white:#FFFDF6;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Nunito',system-ui,sans-serif;
+    background:var(--cream);
+    color:var(--navy);
+    line-height:1.6;
+  }
+  a{color:inherit}
+  .wrap{max-width:960px;margin:0 auto;padding:0 24px}
+
+  /* nav */
+  nav{padding:20px 0}
+  .nav-row{display:flex;align-items:center;justify-content:space-between}
+  .logo{display:flex;align-items:center;gap:10px;font-weight:900;font-size:1.35rem;text-decoration:none}
+  .logo-mark{
+    width:38px;height:38px;border-radius:10px;background:var(--honey);
+    display:grid;place-items:center;font-size:1.05rem;font-weight:900;color:var(--navy);
+  }
+  .nav-links{display:flex;gap:26px;font-weight:700}
+  .nav-links a{text-decoration:none;padding:6px 2px;border-bottom:3px solid transparent}
+  .nav-links a:hover,.nav-links a:focus-visible{border-bottom-color:var(--honey)}
+  .nav-links a.active{border-bottom-color:var(--navy)}
+
+  /* hero */
+  header.hero{padding:56px 0 40px;text-align:center}
+  .hero .bee{font-size:2rem;display:block;margin-bottom:12px}
+  .hero h1{
+    font-weight:900;font-size:clamp(2rem,5.5vw,3.4rem);
+    line-height:1.12;letter-spacing:-0.01em;max-width:18ch;margin:0 auto 18px;
+  }
+  .hero p.lede{
+    font-size:1.15rem;color:var(--navy-soft);max-width:44ch;margin:0 auto;
+  }
+
+  /* download card — the one bold thing */
+  .qr-card{
+    margin:44px auto 0;max-width:720px;
+    background:var(--honey);border-radius:32px;
+    padding:40px 32px;
+    display:flex;align-items:center;gap:36px;flex-wrap:wrap;justify-content:center;
+    box-shadow:0 14px 0 rgba(45,42,74,.14);
+  }
+  .qr-card img.qr{
+    width:220px;height:220px;border-radius:20px;display:block;background:var(--cream);
+  }
+  .qr-side{max-width:320px;text-align:left}
+  .qr-side h2{font-weight:900;font-size:1.5rem;line-height:1.2;margin-bottom:10px}
+  .qr-side p{font-weight:600;margin-bottom:18px}
+  .store-btn{
+    display:inline-block;background:var(--navy);color:var(--cream);
+    text-decoration:none;font-weight:800;font-size:1rem;
+    padding:13px 24px;border-radius:999px;
+  }
+  .store-btn:hover,.store-btn:focus-visible{background:#3B3760}
+  .fineprint{display:block;margin-top:12px;font-size:.85rem;color:var(--navy-soft);font-weight:600}
+
+  /* how it works */
+  section.how{padding:72px 0 24px}
+  section.how h2{font-weight:900;font-size:1.9rem;margin-bottom:34px;text-align:center}
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .step{
+    background:var(--white);border-radius:20px;padding:26px 24px;
+    border:2px solid rgba(45,42,74,.08);
+  }
+  .step .n{
+    width:34px;height:34px;border-radius:50%;background:var(--honey-soft);
+    display:grid;place-items:center;font-weight:900;margin-bottom:14px;
+  }
+  .step h3{font-weight:800;font-size:1.1rem;margin-bottom:6px}
+  .step p{color:var(--navy-soft);font-size:.97rem}
+  .step p em{font-style:normal;background:var(--honey-soft);border-radius:6px;padding:0 5px}
+
+  /* what it reads */
+  section.reads{padding:56px 0}
+  section.reads .inner{
+    background:var(--navy);color:var(--cream);border-radius:28px;
+    padding:42px 36px;text-align:center;
+  }
+  section.reads h2{font-weight:900;font-size:1.6rem;margin-bottom:10px}
+  section.reads p{max-width:52ch;margin:0 auto;color:#D8D3E8}
+
+  /* footer */
+  footer{padding:44px 0 56px;text-align:center;color:var(--navy-soft);font-weight:600;font-size:.92rem}
+  footer a{font-weight:800}
+
+  @media (max-width:720px){
+    .steps{grid-template-columns:1fr}
+    .qr-card{padding:32px 22px;gap:26px}
+    .qr-side{text-align:center}
+  }
+  @media (prefers-reduced-motion:no-preference){
+    .hero .bee{animation:hover-bee 3.2s ease-in-out infinite}
+    @keyframes hover-bee{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+  }
 </style>
 </head>
 <body>
-<main>
-  <h1>Calenbee</h1>
-  <p class="tag">Busy life? Bee organized.</p>
 
-  <h2>Purpose of this app</h2>
-  <div class="purpose">
-    <p><b>Calenbee</b> is an iPhone application whose purpose is to help busy people —
-    especially parents — get events onto their Google Calendar without typing them by hand.
-    Calenbee reads event details out of photos, voice notes, and typed notes using AI,
-    shows the extracted events to the user for review, and saves the events the user
-    approves to their Google Calendar. Calenbee can also move or cancel existing calendar
-    events when the user asks.</p>
+<nav class="wrap">
+  <div class="nav-row">
+    <a class="logo" href="index.html"><span class="logo-mark">C</span>Calenbee</a>
+    <div class="nav-links">
+      <a href="index.html" class="active">Home</a>
+      <a href="about.html">About us</a>
+    </div>
   </div>
+</nav>
 
-  <h2>What you can do with Calenbee</h2>
-  <ul>
-    <li><b>Snap a photo</b> of a school calendar, flyer, invitation, appointment card, or a
-    screenshot of a text or email. Calenbee reads it and extracts every event — dates,
-    times, locations, even multi-day spans and recurring schedules.</li>
-    <li><b>Speak or type a note</b> — "Dentist next Tuesday 3pm" becomes a calendar event.
-    Calenbee understands many languages.</li>
-    <li><b>Edit by voice</b> — say "Move soccer practice to Friday 5pm" or "Cancel the
-    dentist appointment," and Calenbee finds that event on your calendar and makes the
-    change.</li>
-    <li><b>Review everything first</b> — nothing is added, moved, or deleted without your
-    explicit approval on the review screen.</li>
-  </ul>
+<header class="hero wrap">
+  <span class="bee" aria-hidden="true">🐝</span>
+  <h1>No more typing events into your calendar.</h1>
+  <p class="lede">Snap it — or just say it. School flyers, birthday invitations, handwritten notes: Calenbee turns any photo into calendar events.</p>
 
-  <h2>How Calenbee uses Google Calendar</h2>
-  <ul>
-    <li><b>Read access</b> lists your calendars so you can choose where events are saved,
-    and finds existing events when you ask to move or cancel one.</li>
-    <li><b>Write access</b> adds, updates, or deletes only the events you explicitly
-    approve.</li>
-  </ul>
-  <p>Calendar data stays between your device and Google; Calenbee's servers do not store
-  your events. Photos and voice notes are processed transiently by AI and not kept.
-  Full details: <a href="/privacy.html">Privacy Policy</a>.</p>
+  <div class="qr-card">
+    <img class="qr" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAkwAAAJMCAIAAACHBm6UAAAWfmNhQlgAABZ+anVtYgAAAB5qdW1kYzJwYQARABCAAACqADibcQNjMnBhAAAAFlhqdW1iAAAAR2p1bWRjMm1hABEAEIAAAKoAOJtxA3VybjpjMnBhOjIwODE0NjgzLWVjMDktNDIxZS04YTU5LWNjMTQ3NzQxYmEwNgAAAAOTanVtYgAAAClqdW1kYzJhcwARABCAAACqADibcQNjMnBhLmFzc2VydGlvbnMAAAAAuGp1bWIAAABEanVtZGNib3IAEQAQgAAAqgA4m3ETYzJwYS5pbmdyZWRpZW50LnYzAAAAABhjMnNodLxsQ6pLfzQyJsTgrV4F3AAAAGxjYm9yo2lkYzpmb3JtYXRpaW1hZ2UvcG5namluc3RhbmNlSUR4LHhtcDppaWQ6MDIyMTc4MDUtY2Y3ZS00NzcwLWJmMjMtODc3NWM3MzVmZjEybHJlbGF0aW9uc2hpcGhwYXJlbnRPZgAAAeJqdW1iAAAAQWp1bWRjYm9yABEAEIAAAKoAOJtxE2MycGEuYWN0aW9ucy52MgAAAAAYYzJzaO/fX38dL8DJfvj9aJdVbMQAAAGZY2JvcqJnYWN0aW9uc4KiZmFjdGlvbmtjMnBhLm9wZW5lZGpwYXJhbWV0ZXJzoWtpbmdyZWRpZW50c4GiY3VybHgtc2VsZiNqdW1iZj1jMnBhLmFzc2VydGlvbnMvYzJwYS5pbmdyZWRpZW50LnYzZGhhc2hYIFEUScrEX7mFCEAKrX9qqJ4PNqrgtyBP/X+rylliAi7QpGZhY3Rpb254HWNvbS5hbnRocm9waWMuY2xhdWRlLnByb3ZpZGVkanBhcmFtZXRlcnOheB9jb20uYW50aHJvcGljLm9yaWdpbi1jb25maWRlbmNlZ3Vua25vd25rZGVzY3JpcHRpb254ZkNsYXVkZSBwcm92aWRlZCB0aGlzIGZpbGUgYXQgdGhlIHJlcXVlc3Qgb2YgYSB1c2VyIGFuZCBtYXkgaGF2ZSBjcmVhdGVkIG9yIG1vZGlmaWVkIHRoZSBmaWxlIGNvbnRlbnRzLm1zb2Z0d2FyZUFnZW50oWRuYW1lZkNsYXVkZXJhbGxBY3Rpb25zSW5jbHVkZWT1AAAAyGp1bWIAAABAanVtZGNib3IAEQAQgAAAqgA4m3ETYzJwYS5oYXNoLmRhdGEAAAAAGGMyc2in3XErd+UmBjOi4bBe3GRTAAAAgGNib3KlY2FsZ2ZzaGEyNTZjcGFkTQAAAAAAAAAAAAAAAABkaGFzaFggwPUmWEWo/cv7dno8hVd8SMmf1qQocPH/SEl7gNm8uO5kbmFtZW5qdW1iZiBtYW5pZmVzdGpleGNsdXNpb25zgaJlc3RhcnQYIWZsZW5ndGgZFooAAAI+anVtYgAAACdqdW1kYzJjbAARABCAAACqADibcQNjMnBhLmNsYWltLnYyAAAAAg9jYm9ypWNhbGdmc2hhMjU2aXNpZ25hdHVyZXhNc2VsZiNqdW1iZj0vYzJwYS91cm46YzJwYToyMDgxNDY4My1lYzA5LTQyMWUtOGE1OS1jYzE0Nzc0MWJhMDYvYzJwYS5zaWduYXR1cmVqaW5zdGFuY2VJRHgseG1wOmlpZDo4YWY2ODQ3MS02YzIzLTRlZGYtYjI5Yy02NzllYWNkMWVkOThyY3JlYXRlZF9hc3NlcnRpb25zg6JjdXJseC1zZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmluZ3JlZGllbnQudjNkaGFzaFggURRJysRfuYUIQAqtf2qong82quC3IE/9f6vKWWICLtCiY3VybHgqc2VsZiNqdW1iZj1jMnBhLmFzc2VydGlvbnMvYzJwYS5hY3Rpb25zLnYyZGhhc2hYIICCkMQ/CCQUJ+ed3rAqqnAJrU9Z4ObZ/L/VNioKHIGUomN1cmx4KXNlbGYjanVtYmY9YzJwYS5hc3NlcnRpb25zL2MycGEuaGFzaC5kYXRhZGhhc2hYIH+y9+O0A0FFEWTq0HogTqX61f+f07yOic62pR7Gx8a2dGNsYWltX2dlbmVyYXRvcl9pbmZvo2RuYW1lb0FudGhyb3BpYyBGaWxlc2d2ZXJzaW9uZTEuMC4wa3NwZWNWZXJzaW9uZTIuNC4wAAAQOGp1bWIAAAAoanVtZGMyY3MAEQAQgAAAqgA4m3EDYzJwYS5zaWduYXR1cmUAAAAQCGNib3LShFkCEqIBJhghWQIKMIICBjCCAY2gAwIBAgIUQOWgCu7COdC+uIP6BkIFPWdVEwAwCgYIKoZIzj0EAwMwSTEXMBUGA1UEChMOQW50aHJvcGljLCBQQkMxLjAsBgNVBAMTJUFudGhyb3BpYyBDb250ZW50IENyZWRlbnRpYWxzIFJvb3QgQ0EwHhcNMjYwODA3MTg0MzU2WhcNMjgwODA2MTk0MzU2WjBEMRcwFQYDVQQKEw5BbnRocm9waWMsIFBCQzEpMCcGA1UEAxMgQW50aHJvcGljIENsYXVkZSBDb250ZW50IFNpZ25pbmcwWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAASYegpry1AYBRTVNL1CpTlbROnY3dey+UrsF9C3phYrATN3ZHf93Mo8RQN0KOUuOn19P4oWNFWe5n2/She9N7eTo1gwVjAOBgNVHQ8BAf8EBAMCB4AwFQYDVR0lBA4wDAYKKwYBBAGD6F4CATAMBgNVHRMBAf8EAjAAMB8GA1UdIwQYMBaAFM5R4gSBTmRbI/jjxM+aPpzB11zCMAoGCCqGSM49BAMDA2cAMGQCMDFzHRSeAXrSy1WOzkbhPZ6Km2wGTmZ/2gK18k8BQGXyqz88Rdrz6CTX9flAnYNVxgIwcF9c3fVhqmJKpi+UhasNUMko69cyX6STPfta3Q8EjyzDjzoyrol46FP6VFHhvUcJoWNwYWRZDZ4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA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" alt="QR code linking to Calenbee on the App Store" width="220" height="220">
+    <div class="qr-side">
+      <h2>Get Calenbee on iPhone</h2>
+      <p>Scan the code with your camera, or tap the button below. Free for one week.</p>
+      <a class="store-btn" href="https://apps.apple.com/us/app/calenbee/id6796809521">Download on the App Store</a>
+      <span class="fineprint">Free · in-app purchases · works with Google Calendar</span>
+    </div>
+  </div>
+</header>
 
-  <h2>Get the app</h2>
-  <p>Calenbee for iPhone is coming soon to the App Store.</p>
+<section class="how wrap">
+  <h2>How it works</h2>
+  <div class="steps">
+    <div class="step">
+      <div class="n">1</div>
+      <h3>Snap or say it</h3>
+      <p>Photograph anything with a date — or speak: <em>"Chess class every Sunday 6–7pm until Dec 14."</em></p>
+    </div>
+    <div class="step">
+      <div class="n">2</div>
+      <h3>Review</h3>
+      <p>Calenbee reads it, extracts every event, and shows you exactly what it found before anything is added.</p>
+    </div>
+    <div class="step">
+      <div class="n">3</div>
+      <h3>Done</h3>
+      <p>Approved events land on your Google Calendar. Move, reschedule, or cancel by voice anytime.</p>
+    </div>
+  </div>
+</section>
 
-  <footer>
-    Calenbee · <a href="/privacy.html">Privacy Policy</a> ·
-    Contact: shengnan.n.zhao@gmail.com
-  </footer>
-</main>
+<section class="reads wrap">
+  <div class="inner">
+    <h2>Built for the paper chaos of family life</h2>
+    <p>School calendars, soccer schedules, appointment cards, flyers on the fridge, even screenshots of texts and emails — if it has a date on it, Calenbee can read it.</p>
+  </div>
+</section>
+
+<footer class="wrap">
+  <p>Calenbee · <a href="https://apps.apple.com/us/app/calenbee/id6796809521">App Store</a> · <a href="about.html">About us</a></p>
+</footer>
+
 </body>
 </html>
-
