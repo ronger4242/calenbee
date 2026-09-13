@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact us — Calenbee</title>
+<meta name="description" content="Get in touch with the Calenbee team — support, feedback, and feature requests.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{ --cream:#FBF3D9; --honey:#F0C94A; --honey-soft:#F6DF9B; --navy:#2D2A4A; --navy-soft:#54506F; --white:#FFFDF6; }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var(--navy);line-height:1.7}
+  a{color:inherit}
+  .wrap{max-width:960px;margin:0 auto;padding:0 24px}
+  nav{padding:20px 0}
+  .nav-row{display:flex;align-items:center;justify-content:space-between}
+  .logo{display:flex;align-items:center;gap:10px;font-weight:900;font-size:1.35rem;text-decoration:none}
+  .logo-mark{width:38px;height:38px;border-radius:10px;background:var(--honey);display:grid;place-items:center;font-size:1.05rem;font-weight:900;color:var(--navy)}
+  .nav-links{display:flex;gap:26px;font-weight:700}
+  .nav-links a{text-decoration:none;padding:6px 2px;border-bottom:3px solid transparent}
+  .nav-links a:hover,.nav-links a:focus-visible{border-bottom-color:var(--honey)}
+  .nav-links a.active{border-bottom-color:var(--navy)}
+  header.page{padding:56px 0 8px;text-align:center}
+  header.page h1{font-weight:900;font-size:clamp(1.9rem,4.5vw,2.8rem);margin-bottom:8px}
+  header.page p{color:var(--navy-soft);font-weight:600}
+  .cards{max-width:640px;margin:44px auto 0;padding:0 24px;display:grid;gap:20px}
+  .card{background:var(--white);border:2px solid rgba(45,42,74,.08);border-radius:20px;padding:28px 30px}
+  .card h2{font-weight:800;font-size:1.15rem;margin-bottom:6px}
+  .card p{color:var(--navy-soft);font-size:1rem;margin-bottom:14px}
+  .card a.btn{display:inline-block;background:var(--navy);color:var(--cream);text-decoration:none;font-weight:800;padding:11px 22px;border-radius:999px;font-size:.95rem}
+  .card a.btn:hover{background:#3B3760}
+  .note{max-width:640px;margin:36px auto 0;padding:0 24px;text-align:center;color:var(--navy-soft);font-weight:600;font-size:.95rem}
+  footer{padding:44px 0 56px;text-align:center;color:var(--navy-soft);font-weight:600;font-size:.92rem}
+  footer a{font-weight:800}
+</style>
+</head>
+<body>
+
+<nav class="wrap">
+  <div class="nav-row">
+    <a class="logo" href="index.html"><span class="logo-mark">C</span>Calenbee</a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About us</a>
+      <a href="contact.html" class="active">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header class="page wrap">
+  <h1>Contact us</h1>
+  <p>Questions, bugs, or ideas — we read everything. 🐝</p>
+</header>
+
+<div class="cards">
+  <div class="card">
+    <h2>Support &amp; feedback</h2>
+    <p>Something not working, or an event that didn't come out right? Email us and include a screenshot if you can.</p>
+    <a class="btn" href="mailto:shengnan.n.zhao@gmail.com">shengnan.n.zhao@gmail.com</a>
+  </div>
+  <div class="card">
+    <h2>Feature requests</h2>
+    <p>Calenbee is built by one parent who actually reads these. Tell us what would save you the most time.</p>
+    <a class="btn" href="mailto:shengnan.n.zhao@gmail.com?subject=Feature%20request">Suggest a feature</a>
+  </div>
+</div>
+
+<p class="note">We usually reply within 1–2 business days.</p>
+
+<footer class="wrap">
+  <p>Calenbee · <a href="https://apps.apple.com/us/app/calenbee/id6796809521">App Store</a> · <a href="about.html">About us</a> · <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a></p>
+</footer>
+
+</body>
+</html>
