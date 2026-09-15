@@ -8,69 +8,193 @@
   main { max-width: 680px; margin: 0 auto; }
   h1 { font-size: 32px; } h2 { font-size: 20px; margin-top: 28px; }
   a { color: #8A6D1C; }
+  .lang{display:inline-flex;gap:3px;background:rgba(46,42,79,.08);border-radius:999px;padding:3px;margin-bottom:18px}
+  .lang button{border:0;background:transparent;font:inherit;font-weight:700;font-size:14px;padding:5px 12px;border-radius:999px;cursor:pointer;color:#54506F}
+  .lang button.on{background:#2E2A4F;color:#FBF3DC}
 </style>
 </head>
 <body>
 <main>
-<h1>Calenbee Privacy Policy</h1>
-<p>Last updated: August 3, 2026</p>
-<p>Calenbee is an iPhone app that turns photos, voice notes, and typed notes into
+<div class="lang" role="group" aria-label="Language">
+  <button type="button" data-lang="en">EN</button>
+  <button type="button" data-lang="zh">中文</button>
+  <button type="button" data-lang="es">ES</button>
+</div>
+<h1 data-i18n="h1">Calenbee Privacy Policy</h1>
+<p data-i18n="updated">Last updated: August 3, 2026</p>
+<p data-i18n="intro">Calenbee is an iPhone app that turns photos, voice notes, and typed notes into
 calendar events. This policy describes what data Calenbee accesses and how it is used.</p>
-<h2>Google account and calendar data</h2>
-<p>When you sign in with Google, Calenbee receives your name, email address, and profile
+<h2 data-i18n="g_h2">Google account and calendar data</h2>
+<p data-i18n="g_p1">When you sign in with Google, Calenbee receives your name, email address, and profile
 picture to identify your account. With your permission, Calenbee uses two Google Calendar
 permissions:</p>
-<p><b>Read access</b> is used to list your calendars so you can choose where events are
+<p data-i18n="g_read"><b>Read access</b> is used to list your calendars so you can choose where events are
 saved, and to find existing events when you ask to move or cancel one.</p>
-<p><b>Write access</b> is used to create, update, or delete only the events you explicitly
+<p data-i18n="g_write"><b>Write access</b> is used to create, update, or delete only the events you explicitly
 review and approve in the app.</p>
-<p>Your calendar data is accessed directly between your device and Google. Calenbee's
+<p data-i18n="g_p2">Your calendar data is accessed directly between your device and Google. Calenbee's
 servers do not store your calendar events, and your Google data is never sold, shared
 with third parties, or used for advertising. Calendar event details you ask to match
 (titles, dates, calendar names) are sent to our server transiently to identify the event
 you meant, and are not retained.</p>
-<h2>Photos, voice recordings, and typed notes</h2>
-<p>When you scan a photo, record a voice note, or type a note, it is sent to Calenbee's
+<h2 data-i18n="ph_h2">Photos, voice recordings, and typed notes</h2>
+<p data-i18n="ph_p">When you scan a photo, record a voice note, or type a note, it is sent to Calenbee's
 server and processed with Google's Gemini AI to extract event details. These inputs are
 processed transiently and are not stored by Calenbee after processing.</p>
-<h2>Subscriptions</h2>
-<p>Subscriptions are purchased through Apple's App Store and are tied to your Apple
+<h2 data-i18n="sub_h2">Subscriptions</h2>
+<p data-i18n="sub_p">Subscriptions are purchased through Apple's App Store and are tied to your Apple
 Account. Calenbee verifies your subscription status using Apple's signed transaction
 data and does not receive your payment details.</p>
-<h2>Data protection and security</h2>
-<p>Calenbee protects your data using the following mechanisms:</p>
-<p><b>Encryption in transit.</b> All data sent between the Calenbee app, Calenbee's
+<h2 data-i18n="sec_h2">Data protection and security</h2>
+<p data-i18n="sec_p0">Calenbee protects your data using the following mechanisms:</p>
+<p data-i18n="sec_p1"><b>Encryption in transit.</b> All data sent between the Calenbee app, Calenbee's
 servers, and Google APIs — including photos, voice recordings, notes, and calendar
 requests — is encrypted using TLS (HTTPS). No user data is ever transmitted
 unencrypted.</p>
-<p><b>Secure credential storage.</b> Your Google sign-in tokens are stored only on
+<p data-i18n="sec_p2"><b>Secure credential storage.</b> Your Google sign-in tokens are stored only on
 your device and are never stored on Calenbee's servers. Calenbee never receives or
 stores your Google password, and OAuth tokens are never written to server databases
 or logs.</p>
-<p><b>Transient processing.</b> Photos, voice recordings, and text you submit are
+<p data-i18n="sec_p3"><b>Transient processing.</b> Photos, voice recordings, and text you submit are
 processed in memory to extract event details and are discarded when processing
 completes. They are not written to persistent storage, backed up, or reused.</p>
-<p><b>Access controls.</b> Access to Calenbee's server infrastructure is restricted
+<p data-i18n="sec_p4"><b>Access controls.</b> Access to Calenbee's server infrastructure is restricted
 to the developer and protected by authentication. Sensitive configuration values,
 such as API keys, are stored as protected environment secrets rather than in code.</p>
-<p><b>Data minimization.</b> Calenbee requests only the two Google Calendar
+<p data-i18n="sec_p5"><b>Data minimization.</b> Calenbee requests only the two Google Calendar
 permissions required for its features and accesses only the data needed to carry
 out the action you request.</p>
-<p><b>No AI/ML training.</b> Data obtained through Google APIs is never used to
+<p data-i18n="sec_p6"><b>No AI/ML training.</b> Data obtained through Google APIs is never used to
 develop, improve, or train generalized AI or machine-learning models.</p>
-<h2>Data retention and deletion</h2>
-<p>Calenbee keeps minimal account data (your Google account identifier) to operate the
+<h2 data-i18n="ret_h2">Data retention and deletion</h2>
+<p data-i18n="ret_p">Calenbee keeps minimal account data (your Google account identifier) to operate the
 service. You can revoke Calenbee's access to your Google account at any time at
 <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>,
 which immediately prevents any further calendar access. Deleting the app removes all
 data stored on your device.</p>
-<h2>Google API Services User Data Policy</h2>
-<p>Calenbee's use of information received from Google APIs adheres to the
+<h2 data-i18n="gp_h2">Google API Services User Data Policy</h2>
+<p data-i18n="gp_p">Calenbee's use of information received from Google APIs adheres to the
 <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API
 Services User Data Policy</a>, including the Limited Use requirements.</p>
-<h2>Contact</h2>
-<p>Questions: shengnan.n.zhao@gmail.com</p>
-<p><a href="/">← Back to Calenbee home</a></p>
+<h2 data-i18n="ct_h2">Contact</h2>
+<p><span data-i18n="ct_p">Questions:</span> shengnan.n.zhao@gmail.com</p>
+<p><a href="/" data-i18n="back">← Back to Calenbee home</a></p>
 </main>
+<script>
+const I18N = {
+  en: {
+    _title: "Calenbee — Privacy Policy",
+    h1: "Calenbee Privacy Policy",
+    updated: "Last updated: August 3, 2026",
+    intro: "Calenbee is an iPhone app that turns photos, voice notes, and typed notes into calendar events. This policy describes what data Calenbee accesses and how it is used.",
+    g_h2: "Google account and calendar data",
+    g_p1: "When you sign in with Google, Calenbee receives your name, email address, and profile picture to identify your account. With your permission, Calenbee uses two Google Calendar permissions:",
+    g_read: "<b>Read access</b> is used to list your calendars so you can choose where events are saved, and to find existing events when you ask to move or cancel one.",
+    g_write: "<b>Write access</b> is used to create, update, or delete only the events you explicitly review and approve in the app.",
+    g_p2: "Your calendar data is accessed directly between your device and Google. Calenbee's servers do not store your calendar events, and your Google data is never sold, shared with third parties, or used for advertising. Calendar event details you ask to match (titles, dates, calendar names) are sent to our server transiently to identify the event you meant, and are not retained.",
+    ph_h2: "Photos, voice recordings, and typed notes",
+    ph_p: "When you scan a photo, record a voice note, or type a note, it is sent to Calenbee's server and processed with Google's Gemini AI to extract event details. These inputs are processed transiently and are not stored by Calenbee after processing.",
+    sub_h2: "Subscriptions",
+    sub_p: "Subscriptions are purchased through Apple's App Store and are tied to your Apple Account. Calenbee verifies your subscription status using Apple's signed transaction data and does not receive your payment details.",
+    sec_h2: "Data protection and security",
+    sec_p0: "Calenbee protects your data using the following mechanisms:",
+    sec_p1: "<b>Encryption in transit.</b> All data sent between the Calenbee app, Calenbee's servers, and Google APIs — including photos, voice recordings, notes, and calendar requests — is encrypted using TLS (HTTPS). No user data is ever transmitted unencrypted.",
+    sec_p2: "<b>Secure credential storage.</b> Your Google sign-in tokens are stored only on your device and are never stored on Calenbee's servers. Calenbee never receives or stores your Google password, and OAuth tokens are never written to server databases or logs.",
+    sec_p3: "<b>Transient processing.</b> Photos, voice recordings, and text you submit are processed in memory to extract event details and are discarded when processing completes. They are not written to persistent storage, backed up, or reused.",
+    sec_p4: "<b>Access controls.</b> Access to Calenbee's server infrastructure is restricted to the developer and protected by authentication. Sensitive configuration values, such as API keys, are stored as protected environment secrets rather than in code.",
+    sec_p5: "<b>Data minimization.</b> Calenbee requests only the two Google Calendar permissions required for its features and accesses only the data needed to carry out the action you request.",
+    sec_p6: "<b>No AI/ML training.</b> Data obtained through Google APIs is never used to develop, improve, or train generalized AI or machine-learning models.",
+    ret_h2: "Data retention and deletion",
+    ret_p: "Calenbee keeps minimal account data (your Google account identifier) to operate the service. You can revoke Calenbee's access to your Google account at any time at <a href=\"https://myaccount.google.com/permissions\">myaccount.google.com/permissions</a>, which immediately prevents any further calendar access. Deleting the app removes all data stored on your device.",
+    gp_h2: "Google API Services User Data Policy",
+    gp_p: "Calenbee's use of information received from Google APIs adheres to the <a href=\"https://developers.google.com/terms/api-services-user-data-policy\">Google API Services User Data Policy</a>, including the Limited Use requirements.",
+    ct_h2: "Contact",
+    ct_p: "Questions:",
+    back: "← Back to Calenbee home"
+  },
+  zh: {
+    _title: "Calenbee — 隐私政策",
+    h1: "Calenbee 隐私政策",
+    updated: "最后更新：2026 年 8 月 3 日",
+    intro: "Calenbee 是一款将照片、语音和文字笔记转换为日历日程的 iPhone 应用。本政策说明 Calenbee 访问哪些数据以及如何使用这些数据。",
+    g_h2: "Google 账号与日历数据",
+    g_p1: "当你使用 Google 登录时，Calenbee 会获取你的姓名、邮箱地址和头像，用于识别你的账号。经你授权后，Calenbee 使用两项 Google 日历权限：",
+    g_read: "<b>读取权限</b>用于列出你的日历，让你选择日程保存的位置，以及在你要求移动或取消日程时查找已有日程。",
+    g_write: "<b>写入权限</b>仅用于创建、更新或删除你在应用中明确确认并批准的日程。",
+    g_p2: "你的日历数据在你的设备与 Google 之间直接访问。Calenbee 的服务器不存储你的日历日程；你的 Google 数据绝不会被出售、与第三方共享或用于广告。当你要求匹配某个日程时，相关信息（标题、日期、日历名称）会临时发送到我们的服务器以识别你所指的日程，且不会被保留。",
+    ph_h2: "照片、语音与文字笔记",
+    ph_p: "当你扫描照片、录制语音或输入文字时，内容会发送到 Calenbee 的服务器，并使用 Google 的 Gemini AI 提取日程信息。这些内容仅作临时处理，处理完成后 Calenbee 不会存储。",
+    sub_h2: "订阅",
+    sub_p: "订阅通过 Apple 的 App Store 购买，并与你的 Apple 账户绑定。Calenbee 使用 Apple 签名的交易数据验证订阅状态，不会获取你的付款信息。",
+    sec_h2: "数据保护与安全",
+    sec_p0: "Calenbee 通过以下机制保护你的数据：",
+    sec_p1: "<b>传输加密。</b>Calenbee 应用、Calenbee 服务器与 Google API 之间传输的所有数据——包括照片、语音、笔记和日历请求——均使用 TLS（HTTPS）加密。任何用户数据都不会以未加密方式传输。",
+    sec_p2: "<b>凭据安全存储。</b>你的 Google 登录令牌仅存储在你的设备上，绝不会存储在 Calenbee 的服务器上。Calenbee 不会接收或存储你的 Google 密码，OAuth 令牌也绝不会写入服务器数据库或日志。",
+    sec_p3: "<b>临时处理。</b>你提交的照片、语音和文字仅在内存中处理以提取日程信息，处理完成后即被丢弃，不会写入持久存储、备份或复用。",
+    sec_p4: "<b>访问控制。</b>Calenbee 服务器基础设施的访问权限仅限开发者本人，并受身份验证保护。API 密钥等敏感配置以受保护的环境密钥形式存储，而非写在代码中。",
+    sec_p5: "<b>数据最小化。</b>Calenbee 仅申请其功能所需的两项 Google 日历权限，并且只访问执行你所请求操作所需的数据。",
+    sec_p6: "<b>不用于 AI/机器学习训练。</b>通过 Google API 获取的数据绝不会用于开发、改进或训练通用的 AI 或机器学习模型。",
+    ret_h2: "数据保留与删除",
+    ret_p: "Calenbee 仅保留运营服务所需的最少账号数据（你的 Google 账号标识符）。你可以随时在 <a href=\"https://myaccount.google.com/permissions\">myaccount.google.com/permissions</a> 撤销 Calenbee 对你 Google 账号的访问权限，撤销后 Calenbee 将立即无法再访问你的日历。删除应用即可清除设备上存储的所有数据。",
+    gp_h2: "Google API 服务用户数据政策",
+    gp_p: "Calenbee 对通过 Google API 获取的信息的使用遵守 <a href=\"https://developers.google.com/terms/api-services-user-data-policy\">Google API 服务用户数据政策</a>（Google API Services User Data Policy），包括其中的“有限使用”（Limited Use）要求。",
+    ct_h2: "联系方式",
+    ct_p: "如有疑问：",
+    back: "← 返回 Calenbee 首页"
+  },
+  es: {
+    _title: "Calenbee — Política de Privacidad",
+    h1: "Política de Privacidad de Calenbee",
+    updated: "Última actualización: 3 de agosto de 2026",
+    intro: "Calenbee es una app para iPhone que convierte fotos, notas de voz y notas escritas en eventos de calendario. Esta política describe a qué datos accede Calenbee y cómo se utilizan.",
+    g_h2: "Cuenta de Google y datos de calendario",
+    g_p1: "Al iniciar sesión con Google, Calenbee recibe tu nombre, dirección de correo y foto de perfil para identificar tu cuenta. Con tu permiso, Calenbee usa dos permisos de Google Calendar:",
+    g_read: "<b>El acceso de lectura</b> se usa para listar tus calendarios y que elijas dónde guardar los eventos, y para encontrar eventos existentes cuando pides mover o cancelar uno.",
+    g_write: "<b>El acceso de escritura</b> se usa para crear, actualizar o eliminar únicamente los eventos que revisas y apruebas explícitamente en la app.",
+    g_p2: "El acceso a tus datos de calendario ocurre directamente entre tu dispositivo y Google. Los servidores de Calenbee no almacenan tus eventos de calendario, y tus datos de Google nunca se venden, se comparten con terceros ni se usan para publicidad. Los detalles de eventos que pides emparejar (títulos, fechas, nombres de calendarios) se envían a nuestro servidor de forma transitoria para identificar el evento al que te refieres y no se conservan.",
+    ph_h2: "Fotos, grabaciones de voz y notas escritas",
+    ph_p: "Cuando escaneas una foto, grabas una nota de voz o escribes una nota, se envía al servidor de Calenbee y se procesa con la IA Gemini de Google para extraer los detalles del evento. Estos datos se procesan de forma transitoria y Calenbee no los almacena después del procesamiento.",
+    sub_h2: "Suscripciones",
+    sub_p: "Las suscripciones se compran a través del App Store de Apple y están vinculadas a tu cuenta de Apple. Calenbee verifica el estado de tu suscripción con los datos de transacción firmados por Apple y no recibe tus datos de pago.",
+    sec_h2: "Protección y seguridad de los datos",
+    sec_p0: "Calenbee protege tus datos mediante los siguientes mecanismos:",
+    sec_p1: "<b>Cifrado en tránsito.</b> Todos los datos enviados entre la app Calenbee, sus servidores y las API de Google — incluidas fotos, grabaciones de voz, notas y solicitudes de calendario — se cifran con TLS (HTTPS). Ningún dato de usuario se transmite sin cifrar.",
+    sec_p2: "<b>Almacenamiento seguro de credenciales.</b> Tus tokens de inicio de sesión de Google se guardan solo en tu dispositivo y nunca en los servidores de Calenbee. Calenbee nunca recibe ni almacena tu contraseña de Google, y los tokens OAuth nunca se escriben en bases de datos ni registros del servidor.",
+    sec_p3: "<b>Procesamiento transitorio.</b> Las fotos, grabaciones de voz y textos que envías se procesan en memoria para extraer los detalles del evento y se descartan al terminar el procesamiento. No se escriben en almacenamiento persistente, no se respaldan ni se reutilizan.",
+    sec_p4: "<b>Controles de acceso.</b> El acceso a la infraestructura de servidores de Calenbee está restringido a la desarrolladora y protegido por autenticación. Los valores de configuración sensibles, como las claves de API, se guardan como secretos de entorno protegidos, no en el código.",
+    sec_p5: "<b>Minimización de datos.</b> Calenbee solicita solo los dos permisos de Google Calendar necesarios para sus funciones y accede únicamente a los datos necesarios para realizar la acción que solicitas.",
+    sec_p6: "<b>Sin entrenamiento de IA/ML.</b> Los datos obtenidos a través de las API de Google nunca se usan para desarrollar, mejorar o entrenar modelos generalizados de IA o aprendizaje automático.",
+    ret_h2: "Conservación y eliminación de datos",
+    ret_p: "Calenbee conserva datos mínimos de cuenta (tu identificador de cuenta de Google) para operar el servicio. Puedes revocar el acceso de Calenbee a tu cuenta de Google en cualquier momento en <a href=\"https://myaccount.google.com/permissions\">myaccount.google.com/permissions</a>, lo que impide de inmediato cualquier acceso posterior al calendario. Eliminar la app borra todos los datos guardados en tu dispositivo.",
+    gp_h2: "Política de Datos de Usuario de los Servicios de API de Google",
+    gp_p: "El uso que hace Calenbee de la información recibida de las API de Google se adhiere a la <a href=\"https://developers.google.com/terms/api-services-user-data-policy\">Política de Datos de Usuario de los Servicios de API de Google</a>, incluidos los requisitos de Uso Limitado (Limited Use).",
+    ct_h2: "Contacto",
+    ct_p: "Preguntas:",
+    back: "← Volver al inicio de Calenbee"
+  }
+};
+function setLang(l){
+  if(!I18N[l]) l = "en";
+  document.documentElement.lang = l === "zh" ? "zh-CN" : l;
+  const t = I18N[l];
+  document.querySelectorAll("[data-i18n]").forEach(el => {
+    const k = el.getAttribute("data-i18n");
+    if (t[k] != null) el.innerHTML = t[k];
+  });
+  if (t._title) document.title = t._title;
+  document.querySelectorAll(".lang button").forEach(b => b.classList.toggle("on", b.getAttribute("data-lang") === l));
+  try { localStorage.setItem("calenbee-lang", l); } catch (e) {}
+}
+document.querySelectorAll(".lang button").forEach(b => b.addEventListener("click", () => setLang(b.getAttribute("data-lang"))));
+(function(){
+  let l = null;
+  try { l = localStorage.getItem("calenbee-lang"); } catch (e) {}
+  if (!l) {
+    const n = (navigator.language || "en").toLowerCase();
+    l = n.startsWith("zh") ? "zh" : n.startsWith("es") ? "es" : "en";
+  }
+  setLang(l);
+})();
+</script>
 </body>
 </html>
