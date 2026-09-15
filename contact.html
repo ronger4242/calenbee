@@ -18,14 +18,18 @@
   .nav-row{display:flex;align-items:center;justify-content:space-between}
   .logo{display:flex;align-items:center;gap:10px;font-weight:900;font-size:1.35rem;text-decoration:none}
   .logo-mark{width:38px;height:38px;border-radius:10px;background:var(--honey);display:grid;place-items:center;font-size:1.05rem;font-weight:900;color:var(--navy)}
-  .nav-links{display:flex;gap:26px;font-weight:700}
-  .nav-links a{text-decoration:none;padding:6px 2px;border-bottom:3px solid transparent}
+  .nav-links{display:flex;gap:22px;font-weight:700;align-items:center;flex-wrap:wrap;justify-content:center}
+  .nav-links a{text-decoration:none;padding:6px 2px;border-bottom:3px solid transparent;white-space:nowrap}
   .nav-links a:hover,.nav-links a:focus-visible{border-bottom-color:var(--honey)}
   .nav-links a.active{border-bottom-color:var(--navy)}
   .nav-right{display:flex;align-items:center;gap:20px;flex-wrap:wrap;justify-content:flex-end}
   .lang{display:flex;gap:3px;background:rgba(45,42,74,.08);border-radius:999px;padding:3px}
   .lang button{border:0;background:transparent;font:inherit;font-weight:800;font-size:.85rem;padding:5px 11px;border-radius:999px;cursor:pointer;color:var(--navy-soft)}
   .lang button.on{background:var(--navy);color:var(--cream)}
+  @media (max-width:640px){
+    .nav-row{flex-direction:column;align-items:center;gap:12px}
+    .nav-right{flex-direction:column;align-items:center;gap:12px}
+  }
   .lang button:not(.on):hover,.lang button:focus-visible{color:var(--navy)}
   header.page{padding:56px 0 8px;text-align:center}
   header.page h1{font-weight:900;font-size:clamp(1.9rem,4.5vw,2.8rem);margin-bottom:8px}
