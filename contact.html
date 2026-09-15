@@ -38,6 +38,11 @@
   .card a.btn:hover{background:#3B3760}
   .note{max-width:640px;margin:36px auto 0;padding:0 24px;text-align:center;color:var(--navy-soft);font-weight:600;font-size:.95rem}
   footer{padding:44px 0 56px;text-align:center;color:var(--navy-soft);font-weight:600;font-size:.92rem}
+  #toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(12px);
+    background:var(--navy);color:var(--cream);font-weight:700;font-size:.95rem;
+    padding:11px 20px;border-radius:999px;opacity:0;pointer-events:none;
+    transition:opacity .25s,transform .25s;max-width:90vw;text-align:center}
+  #toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
   footer a{font-weight:800}
 </style>
 </head>
@@ -85,6 +90,8 @@
   <p>Calenbee · <a href="https://apps.apple.com/us/app/calenbee/id6796809521">App Store</a> · <a href="about.html" data-i18n="nav_about">About us</a> · <a href="privacy.html" data-i18n="f_privacy">Privacy</a> · <a href="terms.html" data-i18n="f_terms">Terms</a></p>
 </footer>
 
+<div id="toast" role="status" aria-live="polite"></div>
+
 <script>
 const I18N = {
   en: {
@@ -99,7 +106,8 @@ const I18N = {
     c2_h2: "Feature requests",
     c2_p: "Calenbee is built by one parent who actually reads these. Tell us what would save you the most time.",
     c2_btn: "Suggest a feature",
-    note: "We usually reply within 1–2 business days."
+    note: "We usually reply within 1–2 business days.",
+    copied: "Email address copied — paste it into any mail app."
   },
   zh: {
     _title: "联系我们 — Calenbee",
@@ -113,7 +121,8 @@ const I18N = {
     c2_h2: "功能建议",
     c2_p: "Calenbee 由一位家长独立开发，每条建议都会认真阅读。告诉我们什么功能最能帮你省时间。",
     c2_btn: "提交功能建议",
-    note: "我们通常会在 1–2 个工作日内回复。"
+    note: "我们通常会在 1–2 个工作日内回复。",
+    copied: "邮箱地址已复制，可粘贴到任何邮件应用。"
   },
   es: {
     _title: "Contacto — Calenbee",
@@ -127,11 +136,14 @@ const I18N = {
     c2_h2: "Sugerencias de funciones",
     c2_p: "Calenbee la desarrolla una sola madre que de verdad lee estos mensajes. Cuéntanos qué te ahorraría más tiempo.",
     c2_btn: "Sugerir una función",
-    note: "Normalmente respondemos en 1–2 días hábiles."
+    note: "Normalmente respondemos en 1–2 días hábiles.",
+    copied: "Correo copiado — pégalo en cualquier app de correo."
   }
 };
+let currentLang = "en";
 function setLang(l){
   if(!I18N[l]) l = "en";
+  currentLang = l;
   document.documentElement.lang = l === "zh" ? "zh-CN" : l;
   const t = I18N[l];
   document.querySelectorAll("[data-i18n]").forEach(el => {
@@ -145,6 +157,16 @@ function setLang(l){
   try { localStorage.setItem("calenbee-lang", l); } catch (e) {}
 }
 document.querySelectorAll(".lang button").forEach(b => b.addEventListener("click", () => setLang(b.getAttribute("data-lang"))));
+let toastTimer = null;
+document.querySelectorAll('a[href^="mailto:"]').forEach(a => a.addEventListener("click", () => {
+  const email = a.getAttribute("href").replace(/^mailto:/, "").split("?")[0];
+  if (navigator.clipboard) navigator.clipboard.writeText(email).catch(() => {});
+  const t = document.getElementById("toast");
+  t.textContent = I18N[currentLang].copied;
+  t.classList.add("show");
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => t.classList.remove("show"), 2600);
+}));
 (function(){
   let l = null;
   try { l = localStorage.getItem("calenbee-lang"); } catch (e) {}
