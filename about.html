@@ -40,6 +40,11 @@
   .nav-links a{text-decoration:none;padding:6px 2px;border-bottom:3px solid transparent}
   .nav-links a:hover,.nav-links a:focus-visible{border-bottom-color:var(--honey)}
   .nav-links a.active{border-bottom-color:var(--navy)}
+  .nav-right{display:flex;align-items:center;gap:20px;flex-wrap:wrap;justify-content:flex-end}
+  .lang{display:flex;gap:3px;background:rgba(45,42,74,.08);border-radius:999px;padding:3px}
+  .lang button{border:0;background:transparent;font:inherit;font-weight:800;font-size:.85rem;padding:5px 11px;border-radius:999px;cursor:pointer;color:var(--navy-soft)}
+  .lang button.on{background:var(--navy);color:var(--cream)}
+  .lang button:not(.on):hover,.lang button:focus-visible{color:var(--navy)}
 
   header.page{padding:56px 0 8px;text-align:center}
   header.page h1{font-weight:900;font-size:clamp(1.9rem,4.5vw,2.8rem);margin-bottom:8px}
@@ -79,39 +84,125 @@
 <nav class="wrap">
   <div class="nav-row">
     <a class="logo" href="index.html"><span class="logo-mark">C</span>Calenbee</a>
-    <div class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="about.html" class="active">About us</a>
-      <a href="contact.html">Contact</a>
+    <div class="nav-right">
+      <div class="nav-links">
+        <a href="index.html" data-i18n="nav_home">Home</a>
+        <a href="about.html" class="active" data-i18n="nav_about">About us</a>
+        <a href="contact.html" data-i18n="nav_contact">Contact</a>
+      </div>
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" data-lang="en">EN</button>
+        <button type="button" data-lang="zh">中文</button>
+        <button type="button" data-lang="es">ES</button>
+      </div>
     </div>
   </div>
 </nav>
 
 <header class="page wrap">
-  <h1>Why Calenbee exists</h1>
-  <p>Built by a parent, for parents. 🐝</p>
+  <h1 data-i18n="h1">Why Calenbee exists</h1>
+  <p data-i18n="sub">Built by a parent, for parents. 🐝</p>
 </header>
 
 <article>
-  <p>No more typing events into your calendar. Snap it — or just say it.</p>
-  <p>School flyers, birthday invitations, handwritten notes — Calenbee turns any photo into calendar events. Or just tell it: "Chess class every Sunday 6–7pm until Dec 14." Done.</p>
-  <div class="pull">I built Calenbee because, as a data scientist and a mom of two, I was tired of manually typing every school calendar and soccer schedule into my phone.</div>
-  <p>Every school year starts the same way: a stack of flyers, a soccer schedule, a class calendar taped to the fridge — and an evening lost to typing it all into a phone, one event at a time. Calenbee started as a small tool to get that evening back.</p>
-  <p>It does one thing well: it reads whatever life hands you — a photo, a screenshot, a spoken sentence — finds the events inside, and puts them where they belong. You review everything before it touches your calendar. Nothing is added without your OK.</p>
-  <p class="sig">— Shengnan Zhao, creator of Calenbee</p>
+  <p data-i18n="p1">No more typing events into your calendar. Snap it — or just say it.</p>
+  <p data-i18n="p2">School flyers, birthday invitations, handwritten notes — Calenbee turns any photo into calendar events. Or just tell it: "Chess class every Sunday 6–7pm until Dec 14." Done.</p>
+  <div class="pull" data-i18n="pull">I built Calenbee because, as a data scientist and a mom of two, I was tired of manually typing every school calendar and soccer schedule into my phone.</div>
+  <p data-i18n="p3">Every school year starts the same way: a stack of flyers, a soccer schedule, a class calendar taped to the fridge — and an evening lost to typing it all into a phone, one event at a time. Calenbee started as a small tool to get that evening back.</p>
+  <p data-i18n="p4">It does one thing well: it reads whatever life hands you — a photo, a screenshot, a spoken sentence — finds the events inside, and puts them where they belong. You review everything before it touches your calendar. Nothing is added without your OK.</p>
+  <p class="sig" data-i18n="sig">— Shengnan Zhao, creator of Calenbee</p>
 </article>
 
 <div class="cta">
   <div class="box">
-    <h2>Try Calenbee free for a week</h2>
-    <p>Snap it or say it — it's on your calendar.</p>
-    <a class="store-btn" href="https://apps.apple.com/us/app/calenbee/id6796809521">Download on the App Store</a>
+    <h2 data-i18n="cta_h2">Try Calenbee free for a week</h2>
+    <p data-i18n="cta_p">Snap it or say it — it's on your calendar.</p>
+    <a class="store-btn" href="https://apps.apple.com/us/app/calenbee/id6796809521" data-i18n="btn_store">Download on the App Store</a>
   </div>
 </div>
 
 <footer class="wrap">
-  <p>Calenbee · <a href="https://apps.apple.com/us/app/calenbee/id6796809521">App Store</a> · <a href="index.html">Home</a> · <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a> · <a href="contact.html">Contact</a></p>
+  <p>Calenbee · <a href="https://apps.apple.com/us/app/calenbee/id6796809521">App Store</a> · <a href="index.html" data-i18n="nav_home">Home</a> · <a href="privacy.html" data-i18n="f_privacy">Privacy</a> · <a href="terms.html" data-i18n="f_terms">Terms</a> · <a href="contact.html" data-i18n="nav_contact">Contact</a></p>
 </footer>
 
+<script>
+const I18N = {
+  en: {
+    _title: "About us — Calenbee",
+    _desc: "The story behind Calenbee: built by a data scientist and mom of two who was tired of typing every school schedule into her phone.",
+    nav_home: "Home", nav_about: "About us", nav_contact: "Contact",
+    f_privacy: "Privacy", f_terms: "Terms",
+    h1: "Why Calenbee exists",
+    sub: "Built by a parent, for parents. 🐝",
+    p1: "No more typing events into your calendar. Snap it — or just say it.",
+    p2: "School flyers, birthday invitations, handwritten notes — Calenbee turns any photo into calendar events. Or just tell it: \u201cChess class every Sunday 6–7pm until Dec 14.\u201d Done.",
+    pull: "I built Calenbee because, as a data scientist and a mom of two, I was tired of manually typing every school calendar and soccer schedule into my phone.",
+    p3: "Every school year starts the same way: a stack of flyers, a soccer schedule, a class calendar taped to the fridge — and an evening lost to typing it all into a phone, one event at a time. Calenbee started as a small tool to get that evening back.",
+    p4: "It does one thing well: it reads whatever life hands you — a photo, a screenshot, a spoken sentence — finds the events inside, and puts them where they belong. You review everything before it touches your calendar. Nothing is added without your OK.",
+    sig: "— Shengnan Zhao, creator of Calenbee",
+    cta_h2: "Try Calenbee free for a week",
+    cta_p: "Snap it or say it — it's on your calendar.",
+    btn_store: "Download on the App Store"
+  },
+  zh: {
+    _title: "关于我们 — Calenbee",
+    _desc: "Calenbee 背后的故事：一位数据科学家、两个孩子的妈妈，受够了把每份学校日程敲进手机，于是做了这款应用。",
+    nav_home: "首页", nav_about: "关于我们", nav_contact: "联系我们",
+    f_privacy: "隐私政策", f_terms: "使用条款",
+    h1: "Calenbee 的由来",
+    sub: "一位家长做给家长们的应用。🐝",
+    p1: "再也不用手动输入日程。拍一下，或说一句就行。",
+    p2: "学校通知、生日邀请、手写便条——Calenbee 把任何照片变成日历日程。也可以直接告诉它：“国际象棋课，每周日 6–7 点，到 12 月 14 日。”就这么简单。",
+    pull: "我做 Calenbee，是因为作为一名数据科学家、两个孩子的妈妈，我实在受够了把每份学校日历和足球训练表一条条敲进手机。",
+    p3: "每个学年的开始都一样：一摞通知单、一张足球赛程、贴在冰箱上的班级日历——然后花一整晚，把它们一条条敲进手机。Calenbee 最初就是为了把那个晚上找回来而做的小工具。",
+    p4: "它只专注做好一件事：读懂生活递给你的一切——一张照片、一张截图、一句话——找出其中的日程，放到该在的位置。所有内容都由你先确认，未经你同意不会添加任何日程。",
+    sig: "— Shengnan Zhao，Calenbee 开发者",
+    cta_h2: "免费试用 Calenbee 一周",
+    cta_p: "拍一下或说一句——日程自动上日历。",
+    btn_store: "在 App Store 下载"
+  },
+  es: {
+    _title: "Sobre nosotros — Calenbee",
+    _desc: "La historia detrás de Calenbee: creada por una científica de datos y madre de dos, cansada de escribir cada horario escolar en su teléfono.",
+    nav_home: "Inicio", nav_about: "Sobre nosotros", nav_contact: "Contacto",
+    f_privacy: "Privacidad", f_terms: "Términos",
+    h1: "Por qué existe Calenbee",
+    sub: "Creada por una madre, para padres. 🐝",
+    p1: "No vuelvas a escribir eventos en tu calendario. Fotografíalo, o simplemente dilo.",
+    p2: "Circulares escolares, invitaciones de cumpleaños, notas a mano: Calenbee convierte cualquier foto en eventos de calendario. O simplemente díselo: «Clase de ajedrez todos los domingos de 6 a 7pm hasta el 14 de dic». Listo.",
+    pull: "Creé Calenbee porque, como científica de datos y madre de dos, estaba cansada de escribir a mano cada calendario escolar y horario de fútbol en mi teléfono.",
+    p3: "Cada año escolar empieza igual: un montón de circulares, un horario de fútbol, un calendario de clase pegado al refrigerador — y una tarde perdida escribiéndolo todo en el teléfono, evento por evento. Calenbee nació como una pequeña herramienta para recuperar esa tarde.",
+    p4: "Hace una sola cosa, y la hace bien: lee lo que la vida te entregue — una foto, una captura, una frase dicha en voz alta —, encuentra los eventos y los pone donde corresponden. Tú revisas todo antes de que toque tu calendario. Nada se añade sin tu aprobación.",
+    sig: "— Shengnan Zhao, creadora de Calenbee",
+    cta_h2: "Prueba Calenbee gratis una semana",
+    cta_p: "Fotografíalo o dilo: ya está en tu calendario.",
+    btn_store: "Descargar en el App Store"
+  }
+};
+function setLang(l){
+  if(!I18N[l]) l = "en";
+  document.documentElement.lang = l === "zh" ? "zh-CN" : l;
+  const t = I18N[l];
+  document.querySelectorAll("[data-i18n]").forEach(el => {
+    const k = el.getAttribute("data-i18n");
+    if (t[k] != null) el.innerHTML = t[k];
+  });
+  if (t._title) document.title = t._title;
+  const md = document.querySelector('meta[name="description"]');
+  if (md && t._desc) md.setAttribute("content", t._desc);
+  document.querySelectorAll(".lang button").forEach(b => b.classList.toggle("on", b.getAttribute("data-lang") === l));
+  try { localStorage.setItem("calenbee-lang", l); } catch (e) {}
+}
+document.querySelectorAll(".lang button").forEach(b => b.addEventListener("click", () => setLang(b.getAttribute("data-lang"))));
+(function(){
+  let l = null;
+  try { l = localStorage.getItem("calenbee-lang"); } catch (e) {}
+  if (!l) {
+    const n = (navigator.language || "en").toLowerCase();
+    l = n.startsWith("zh") ? "zh" : n.startsWith("es") ? "es" : "en";
+  }
+  setLang(l);
+})();
+</script>
 </body>
 </html>
