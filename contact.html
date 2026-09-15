@@ -22,6 +22,11 @@
   .nav-links a{text-decoration:none;padding:6px 2px;border-bottom:3px solid transparent}
   .nav-links a:hover,.nav-links a:focus-visible{border-bottom-color:var(--honey)}
   .nav-links a.active{border-bottom-color:var(--navy)}
+  .nav-right{display:flex;align-items:center;gap:20px;flex-wrap:wrap;justify-content:flex-end}
+  .lang{display:flex;gap:3px;background:rgba(45,42,74,.08);border-radius:999px;padding:3px}
+  .lang button{border:0;background:transparent;font:inherit;font-weight:800;font-size:.85rem;padding:5px 11px;border-radius:999px;cursor:pointer;color:var(--navy-soft)}
+  .lang button.on{background:var(--navy);color:var(--cream)}
+  .lang button:not(.on):hover,.lang button:focus-visible{color:var(--navy)}
   header.page{padding:56px 0 8px;text-align:center}
   header.page h1{font-weight:900;font-size:clamp(1.9rem,4.5vw,2.8rem);margin-bottom:8px}
   header.page p{color:var(--navy-soft);font-weight:600}
@@ -41,37 +46,114 @@
 <nav class="wrap">
   <div class="nav-row">
     <a class="logo" href="index.html"><span class="logo-mark">C</span>Calenbee</a>
-    <div class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="about.html">About us</a>
-      <a href="contact.html" class="active">Contact</a>
+    <div class="nav-right">
+      <div class="nav-links">
+        <a href="index.html" data-i18n="nav_home">Home</a>
+        <a href="about.html" data-i18n="nav_about">About us</a>
+        <a href="contact.html" class="active" data-i18n="nav_contact">Contact</a>
+      </div>
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" data-lang="en">EN</button>
+        <button type="button" data-lang="zh">中文</button>
+        <button type="button" data-lang="es">ES</button>
+      </div>
     </div>
   </div>
 </nav>
 
 <header class="page wrap">
-  <h1>Contact us</h1>
-  <p>Questions, bugs, or ideas — we read everything. 🐝</p>
+  <h1 data-i18n="h1">Contact us</h1>
+  <p data-i18n="sub">Questions, bugs, or ideas — we read everything. 🐝</p>
 </header>
 
 <div class="cards">
   <div class="card">
-    <h2>Support &amp; feedback</h2>
-    <p>Something not working, or an event that didn't come out right? Email us and include a screenshot if you can.</p>
+    <h2 data-i18n="c1_h2">Support &amp; feedback</h2>
+    <p data-i18n="c1_p">Something not working, or an event that didn't come out right? Email us and include a screenshot if you can.</p>
     <a class="btn" href="mailto:shengnan.n.zhao@gmail.com">shengnan.n.zhao@gmail.com</a>
   </div>
   <div class="card">
-    <h2>Feature requests</h2>
-    <p>Calenbee is built by one parent who actually reads these. Tell us what would save you the most time.</p>
-    <a class="btn" href="mailto:shengnan.n.zhao@gmail.com?subject=Feature%20request">Suggest a feature</a>
+    <h2 data-i18n="c2_h2">Feature requests</h2>
+    <p data-i18n="c2_p">Calenbee is built by one parent who actually reads these. Tell us what would save you the most time.</p>
+    <a class="btn" href="mailto:shengnan.n.zhao@gmail.com?subject=Feature%20request" data-i18n="c2_btn">Suggest a feature</a>
   </div>
 </div>
 
-<p class="note">We usually reply within 1–2 business days.</p>
+<p class="note" data-i18n="note">We usually reply within 1–2 business days.</p>
 
 <footer class="wrap">
-  <p>Calenbee · <a href="https://apps.apple.com/us/app/calenbee/id6796809521">App Store</a> · <a href="about.html">About us</a> · <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a></p>
+  <p>Calenbee · <a href="https://apps.apple.com/us/app/calenbee/id6796809521">App Store</a> · <a href="about.html" data-i18n="nav_about">About us</a> · <a href="privacy.html" data-i18n="f_privacy">Privacy</a> · <a href="terms.html" data-i18n="f_terms">Terms</a></p>
 </footer>
 
+<script>
+const I18N = {
+  en: {
+    _title: "Contact us — Calenbee",
+    _desc: "Get in touch with the Calenbee team — support, feedback, and feature requests.",
+    nav_home: "Home", nav_about: "About us", nav_contact: "Contact",
+    f_privacy: "Privacy", f_terms: "Terms",
+    h1: "Contact us",
+    sub: "Questions, bugs, or ideas — we read everything. 🐝",
+    c1_h2: "Support &amp; feedback",
+    c1_p: "Something not working, or an event that didn't come out right? Email us and include a screenshot if you can.",
+    c2_h2: "Feature requests",
+    c2_p: "Calenbee is built by one parent who actually reads these. Tell us what would save you the most time.",
+    c2_btn: "Suggest a feature",
+    note: "We usually reply within 1–2 business days."
+  },
+  zh: {
+    _title: "联系我们 — Calenbee",
+    _desc: "联系 Calenbee 团队——支持、反馈与功能建议。",
+    nav_home: "首页", nav_about: "关于我们", nav_contact: "联系我们",
+    f_privacy: "隐私政策", f_terms: "使用条款",
+    h1: "联系我们",
+    sub: "问题、故障或建议——每一封我们都会看。🐝",
+    c1_h2: "支持与反馈",
+    c1_p: "功能不正常，或日程识别有误？请发邮件告诉我们，最好附上截图。",
+    c2_h2: "功能建议",
+    c2_p: "Calenbee 由一位家长独立开发，每条建议都会认真阅读。告诉我们什么功能最能帮你省时间。",
+    c2_btn: "提交功能建议",
+    note: "我们通常会在 1–2 个工作日内回复。"
+  },
+  es: {
+    _title: "Contacto — Calenbee",
+    _desc: "Ponte en contacto con el equipo de Calenbee: soporte, comentarios y sugerencias de funciones.",
+    nav_home: "Inicio", nav_about: "Sobre nosotros", nav_contact: "Contacto",
+    f_privacy: "Privacidad", f_terms: "Términos",
+    h1: "Contáctanos",
+    sub: "Preguntas, errores o ideas: lo leemos todo. 🐝",
+    c1_h2: "Soporte y comentarios",
+    c1_p: "¿Algo no funciona, o un evento no salió bien? Escríbenos por correo e incluye una captura de pantalla si puedes.",
+    c2_h2: "Sugerencias de funciones",
+    c2_p: "Calenbee la desarrolla una sola madre que de verdad lee estos mensajes. Cuéntanos qué te ahorraría más tiempo.",
+    c2_btn: "Sugerir una función",
+    note: "Normalmente respondemos en 1–2 días hábiles."
+  }
+};
+function setLang(l){
+  if(!I18N[l]) l = "en";
+  document.documentElement.lang = l === "zh" ? "zh-CN" : l;
+  const t = I18N[l];
+  document.querySelectorAll("[data-i18n]").forEach(el => {
+    const k = el.getAttribute("data-i18n");
+    if (t[k] != null) el.innerHTML = t[k];
+  });
+  if (t._title) document.title = t._title;
+  const md = document.querySelector('meta[name="description"]');
+  if (md && t._desc) md.setAttribute("content", t._desc);
+  document.querySelectorAll(".lang button").forEach(b => b.classList.toggle("on", b.getAttribute("data-lang") === l));
+  try { localStorage.setItem("calenbee-lang", l); } catch (e) {}
+}
+document.querySelectorAll(".lang button").forEach(b => b.addEventListener("click", () => setLang(b.getAttribute("data-lang"))));
+(function(){
+  let l = null;
+  try { l = localStorage.getItem("calenbee-lang"); } catch (e) {}
+  if (!l) {
+    const n = (navigator.language || "en").toLowerCase();
+    l = n.startsWith("zh") ? "zh" : n.startsWith("es") ? "es" : "en";
+  }
+  setLang(l);
+})();
+</script>
 </body>
 </html>
