@@ -21,6 +21,11 @@
   .nav-links{display:flex;gap:26px;font-weight:700}
   .nav-links a{text-decoration:none;padding:6px 2px;border-bottom:3px solid transparent}
   .nav-links a:hover{border-bottom-color:var(--honey)}
+  .nav-right{display:flex;align-items:center;gap:20px;flex-wrap:wrap;justify-content:flex-end}
+  .lang{display:flex;gap:3px;background:rgba(45,42,74,.08);border-radius:999px;padding:3px}
+  .lang button{border:0;background:transparent;font:inherit;font-weight:800;font-size:.85rem;padding:5px 11px;border-radius:999px;cursor:pointer;color:var(--navy-soft)}
+  .lang button.on{background:var(--navy);color:var(--cream)}
+  .lang button:not(.on):hover,.lang button:focus-visible{color:var(--navy)}
   header.page{padding:56px 0 8px;text-align:center}
   header.page h1{font-weight:900;font-size:clamp(1.9rem,4.5vw,2.8rem);margin-bottom:8px}
   header.page p{color:var(--navy-soft);font-weight:600}
@@ -36,47 +41,148 @@
 <nav class="wrap">
   <div class="nav-row">
     <a class="logo" href="index.html"><span class="logo-mark">C</span>Calenbee</a>
-    <div class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="about.html">About us</a>
-      <a href="contact.html">Contact</a>
+    <div class="nav-right">
+      <div class="nav-links">
+        <a href="index.html" data-i18n="nav_home">Home</a>
+        <a href="about.html" data-i18n="nav_about">About us</a>
+        <a href="contact.html" data-i18n="nav_contact">Contact</a>
+      </div>
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" data-lang="en">EN</button>
+        <button type="button" data-lang="zh">中文</button>
+        <button type="button" data-lang="es">ES</button>
+      </div>
     </div>
   </div>
 </nav>
 
 <header class="page wrap">
-  <h1>Terms of Use</h1>
-  <p>Last updated: September 12, 2026</p>
+  <h1 data-i18n="h1">Terms of Use</h1>
+  <p data-i18n="updated">Last updated: September 12, 2026</p>
 </header>
 
 <article>
-  <p>These Terms of Use govern your use of the Calenbee iOS application ("the App"), operated by Shengnan Zhao ("we", "us").</p>
+  <p data-i18n="intro">These Terms of Use govern your use of the Calenbee iOS application ("the App"), operated by Shengnan Zhao ("we", "us").</p>
 
-  <h2>1. The service</h2>
-  <p>Calenbee extracts calendar events from photos, screenshots, and voice or text input, and adds them to your connected Google Calendar after your review and approval. Extraction is automated and may contain errors; you are responsible for reviewing events before approving them.</p>
+  <h2 data-i18n="s1_h2">1. The service</h2>
+  <p data-i18n="s1_p">Calenbee extracts calendar events from photos, screenshots, and voice or text input, and adds them to your connected Google Calendar after your review and approval. Extraction is automated and may contain errors; you are responsible for reviewing events before approving them.</p>
 
-  <h2>2. Subscriptions</h2>
-  <p>The App offers auto-renewing subscriptions (monthly and yearly) after a free trial. Payment is charged to your Apple ID account. Subscriptions renew automatically unless cancelled at least 24 hours before the end of the current period. You can manage or cancel subscriptions in your App Store account settings.</p>
+  <h2 data-i18n="s2_h2">2. Subscriptions</h2>
+  <p data-i18n="s2_p">The App offers auto-renewing subscriptions (monthly and yearly) after a free trial. Payment is charged to your Apple ID account. Subscriptions renew automatically unless cancelled at least 24 hours before the end of the current period. You can manage or cancel subscriptions in your App Store account settings.</p>
 
-  <h2>3. Your account and data</h2>
-  <p>You sign in with your Google account. Calendar access is used only to create, modify, or delete events you approve. See our <a href="privacy.html">Privacy Policy</a> for details on how data is handled.</p>
+  <h2 data-i18n="s3_h2">3. Your account and data</h2>
+  <p data-i18n="s3_p">You sign in with your Google account. Calendar access is used only to create, modify, or delete events you approve. See our <a href="privacy.html">Privacy Policy</a> for details on how data is handled.</p>
 
-  <h2>4. Acceptable use</h2>
-  <p>You agree not to misuse the App, attempt to access it by unauthorized means, or use it in violation of applicable law.</p>
+  <h2 data-i18n="s4_h2">4. Acceptable use</h2>
+  <p data-i18n="s4_p">You agree not to misuse the App, attempt to access it by unauthorized means, or use it in violation of applicable law.</p>
 
-  <h2>5. Disclaimer and limitation of liability</h2>
-  <p>The App is provided "as is" without warranties of any kind. To the maximum extent permitted by law, we are not liable for missed, incorrect, or duplicated calendar events, or for any indirect or consequential damages arising from use of the App.</p>
+  <h2 data-i18n="s5_h2">5. Disclaimer and limitation of liability</h2>
+  <p data-i18n="s5_p">The App is provided "as is" without warranties of any kind. To the maximum extent permitted by law, we are not liable for missed, incorrect, or duplicated calendar events, or for any indirect or consequential damages arising from use of the App.</p>
 
-  <h2>6. Changes</h2>
-  <p>We may update these terms from time to time. Continued use of the App after changes take effect constitutes acceptance of the updated terms.</p>
+  <h2 data-i18n="s6_h2">6. Changes</h2>
+  <p data-i18n="s6_p">We may update these terms from time to time. Continued use of the App after changes take effect constitutes acceptance of the updated terms.</p>
 
-  <h2>7. Contact</h2>
-  <p>Questions about these terms: <a href="mailto:shengnan.n.zhao@gmail.com">shengnan.n.zhao@gmail.com</a>.</p>
+  <h2 data-i18n="s7_h2">7. Contact</h2>
+  <p><span data-i18n="s7_p">Questions about these terms:</span> <a href="mailto:shengnan.n.zhao@gmail.com">shengnan.n.zhao@gmail.com</a>.</p>
 </article>
 
 <footer class="wrap">
-  <p>Calenbee · <a href="https://apps.apple.com/us/app/calenbee/id6796809521">App Store</a> · <a href="about.html">About us</a> · <a href="privacy.html">Privacy</a> · <a href="contact.html">Contact</a></p>
+  <p>Calenbee · <a href="https://apps.apple.com/us/app/calenbee/id6796809521">App Store</a> · <a href="about.html" data-i18n="nav_about">About us</a> · <a href="privacy.html" data-i18n="f_privacy">Privacy</a> · <a href="contact.html" data-i18n="nav_contact">Contact</a></p>
 </footer>
 
+<script>
+const I18N = {
+  en: {
+    _title: "Terms of Use — Calenbee",
+    _desc: "Terms of Use for the Calenbee app.",
+    nav_home: "Home", nav_about: "About us", nav_contact: "Contact", f_privacy: "Privacy",
+    h1: "Terms of Use",
+    updated: "Last updated: September 12, 2026",
+    intro: "These Terms of Use govern your use of the Calenbee iOS application (\u201cthe App\u201d), operated by Shengnan Zhao (\u201cwe\u201d, \u201cus\u201d).",
+    s1_h2: "1. The service",
+    s1_p: "Calenbee extracts calendar events from photos, screenshots, and voice or text input, and adds them to your connected Google Calendar after your review and approval. Extraction is automated and may contain errors; you are responsible for reviewing events before approving them.",
+    s2_h2: "2. Subscriptions",
+    s2_p: "The App offers auto-renewing subscriptions (monthly and yearly) after a free trial. Payment is charged to your Apple ID account. Subscriptions renew automatically unless cancelled at least 24 hours before the end of the current period. You can manage or cancel subscriptions in your App Store account settings.",
+    s3_h2: "3. Your account and data",
+    s3_p: "You sign in with your Google account. Calendar access is used only to create, modify, or delete events you approve. See our <a href=\"privacy.html\">Privacy Policy</a> for details on how data is handled.",
+    s4_h2: "4. Acceptable use",
+    s4_p: "You agree not to misuse the App, attempt to access it by unauthorized means, or use it in violation of applicable law.",
+    s5_h2: "5. Disclaimer and limitation of liability",
+    s5_p: "The App is provided \u201cas is\u201d without warranties of any kind. To the maximum extent permitted by law, we are not liable for missed, incorrect, or duplicated calendar events, or for any indirect or consequential damages arising from use of the App.",
+    s6_h2: "6. Changes",
+    s6_p: "We may update these terms from time to time. Continued use of the App after changes take effect constitutes acceptance of the updated terms.",
+    s7_h2: "7. Contact",
+    s7_p: "Questions about these terms:"
+  },
+  zh: {
+    _title: "使用条款 — Calenbee",
+    _desc: "Calenbee 应用的使用条款。",
+    nav_home: "首页", nav_about: "关于我们", nav_contact: "联系我们", f_privacy: "隐私政策",
+    h1: "使用条款",
+    updated: "最后更新：2026 年 9 月 12 日",
+    intro: "本使用条款适用于你对 Calenbee iOS 应用（“本应用”）的使用。本应用由 Shengnan Zhao（“我们”）运营。",
+    s1_h2: "1. 服务内容",
+    s1_p: "Calenbee 从照片、截图以及语音或文字输入中提取日历日程，并在你审核确认后添加到你连接的 Google 日历。提取过程为自动化处理，可能存在错误；你有责任在确认前审核日程内容。",
+    s2_h2: "2. 订阅",
+    s2_p: "本应用提供免费试用后自动续订的订阅（按月和按年）。费用将通过你的 Apple ID 账户扣款。除非在当前订阅期结束前至少 24 小时取消，订阅将自动续订。你可以在 App Store 账户设置中管理或取消订阅。",
+    s3_h2: "3. 账号与数据",
+    s3_p: "你使用 Google 账号登录。日历访问权限仅用于创建、修改或删除你确认的日程。数据处理详情请参阅我们的<a href=\"privacy.html\">隐私政策</a>。",
+    s4_h2: "4. 合理使用",
+    s4_p: "你同意不滥用本应用、不尝试以未授权方式访问本应用，也不将其用于违反适用法律的用途。",
+    s5_h2: "5. 免责声明与责任限制",
+    s5_p: "本应用按“现状”提供，不作任何形式的保证。在法律允许的最大范围内，对于日程遗漏、错误或重复，以及因使用本应用产生的任何间接或后果性损害，我们不承担责任。",
+    s6_h2: "6. 条款变更",
+    s6_p: "我们可能不时更新本条款。条款变更生效后继续使用本应用，即视为接受更新后的条款。",
+    s7_h2: "7. 联系方式",
+    s7_p: "关于本条款的问题："
+  },
+  es: {
+    _title: "Términos de Uso — Calenbee",
+    _desc: "Términos de Uso de la app Calenbee.",
+    nav_home: "Inicio", nav_about: "Sobre nosotros", nav_contact: "Contacto", f_privacy: "Privacidad",
+    h1: "Términos de Uso",
+    updated: "Última actualización: 12 de septiembre de 2026",
+    intro: "Estos Términos de Uso rigen tu uso de la aplicación Calenbee para iOS («la App»), operada por Shengnan Zhao («nosotros»).",
+    s1_h2: "1. El servicio",
+    s1_p: "Calenbee extrae eventos de calendario de fotos, capturas de pantalla y entradas de voz o texto, y los añade a tu Google Calendar conectado tras tu revisión y aprobación. La extracción es automática y puede contener errores; eres responsable de revisar los eventos antes de aprobarlos.",
+    s2_h2: "2. Suscripciones",
+    s2_p: "La App ofrece suscripciones de renovación automática (mensual y anual) tras una prueba gratuita. El pago se carga a tu cuenta de Apple ID. Las suscripciones se renuevan automáticamente salvo que se cancelen al menos 24 horas antes del final del período actual. Puedes gestionarlas o cancelarlas en los ajustes de tu cuenta del App Store.",
+    s3_h2: "3. Tu cuenta y tus datos",
+    s3_p: "Inicias sesión con tu cuenta de Google. El acceso al calendario se usa solo para crear, modificar o eliminar eventos que apruebes. Consulta nuestra <a href=\"privacy.html\">Política de Privacidad</a> para más detalles sobre el tratamiento de datos.",
+    s4_h2: "4. Uso aceptable",
+    s4_p: "Aceptas no hacer mal uso de la App, no intentar acceder a ella por medios no autorizados y no usarla en violación de la ley aplicable.",
+    s5_h2: "5. Exención y limitación de responsabilidad",
+    s5_p: "La App se proporciona «tal cual», sin garantías de ningún tipo. En la máxima medida permitida por la ley, no somos responsables de eventos de calendario omitidos, incorrectos o duplicados, ni de daños indirectos o consecuentes derivados del uso de la App.",
+    s6_h2: "6. Cambios",
+    s6_p: "Podemos actualizar estos términos ocasionalmente. El uso continuado de la App después de que los cambios entren en vigor constituye la aceptación de los términos actualizados.",
+    s7_h2: "7. Contacto",
+    s7_p: "Preguntas sobre estos términos:"
+  }
+};
+function setLang(l){
+  if(!I18N[l]) l = "en";
+  document.documentElement.lang = l === "zh" ? "zh-CN" : l;
+  const t = I18N[l];
+  document.querySelectorAll("[data-i18n]").forEach(el => {
+    const k = el.getAttribute("data-i18n");
+    if (t[k] != null) el.innerHTML = t[k];
+  });
+  if (t._title) document.title = t._title;
+  const md = document.querySelector('meta[name="description"]');
+  if (md && t._desc) md.setAttribute("content", t._desc);
+  document.querySelectorAll(".lang button").forEach(b => b.classList.toggle("on", b.getAttribute("data-lang") === l));
+  try { localStorage.setItem("calenbee-lang", l); } catch (e) {}
+}
+document.querySelectorAll(".lang button").forEach(b => b.addEventListener("click", () => setLang(b.getAttribute("data-lang"))));
+(function(){
+  let l = null;
+  try { l = localStorage.getItem("calenbee-lang"); } catch (e) {}
+  if (!l) {
+    const n = (navigator.language || "en").toLowerCase();
+    l = n.startsWith("zh") ? "zh" : n.startsWith("es") ? "es" : "en";
+  }
+  setLang(l);
+})();
+</script>
 </body>
 </html>
