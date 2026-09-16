@@ -65,7 +65,7 @@
     line-height:1.12;letter-spacing:-0.01em;max-width:18ch;margin:0 auto 18px;
     text-wrap:balance;
   }
-  .hero h1:lang(zh-CN){max-width:26ch;letter-spacing:0}
+  .hero h1:lang(zh-CN){max-width:26ch;letter-spacing:0;font-size:clamp(1.55rem,6.5vw,3rem)}
   .hero p.lede{
     font-size:1.15rem;color:var(--navy-soft);max-width:44ch;margin:0 auto;
   }
@@ -129,6 +129,13 @@
     section.reads .inner{padding:36px 26px}
     .hero p.lede{font-size:1.08rem;padding:0 16px}
   }
+  /* CJK typography */
+  :lang(zh-CN){line-break:strict}
+  .qr-side h2,section.how h2,section.reads h2{text-wrap:balance}
+  .hero p.lede,section.reads p,.step p,.qr-side p{text-wrap:pretty}
+  .kp{white-space:nowrap}
+  section.reads p:lang(zh-CN),.hero p.lede:lang(zh-CN),.step p:lang(zh-CN){line-height:1.8}
+
   @media (prefers-reduced-motion:no-preference){
     .hero .bee{animation:hover-bee 3.2s ease-in-out infinite}
     @keyframes hover-bee{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
@@ -233,7 +240,7 @@ const I18N = {
     nav_home: "首页", nav_about: "关于我们", nav_contact: "联系我们",
     f_privacy: "隐私政策", f_terms: "使用条款",
     h1: "再也不用手动输入日程了。",
-    lede: "拍张照，或说一句就行。学校通知、生日邀请、手写便条——Calenbee 把任何照片变成日历日程。",
+    lede: "拍张照，或说一句就行。学校通知、<span class=\"kp\">生日邀请</span>、<span class=\"kp\">手写便条</span>——Calenbee 把任何照片变成<span class=\"kp\">日历日程</span>。",
     qr_h2: "在 iPhone 上获取 Calenbee",
     qr_p: "用相机扫描二维码，或点击下方按钮。免费试用一周。",
     btn_store: "在 App Store 下载",
@@ -245,8 +252,8 @@ const I18N = {
     s2p: "Calenbee 识别内容、提取所有日程，并在添加前让你逐一确认。",
     s3h: "完成",
     s3p: "确认后的日程自动进入你的 Google 日历。随时可以用语音移动、改期或取消。",
-    reads_h2: "专为家庭生活中的纸质琐事而生",
-    reads_p: "学校日历、足球训练表、预约卡、贴在冰箱上的传单，甚至短信和邮件截图——只要上面有日期，Calenbee 就能读懂。"
+    reads_h2: "专为家庭生活中的纸质琐事<span class=\"kp\">而生</span>",
+    reads_p: "学校日历、足球训练表、预约卡、贴在冰箱上的传单，甚至短信和邮件截图——只要上面有日期，Calenbee <span class=\"kp\">就能读懂</span>。"
   },
   es: {
     _title: "Calenbee — Fotografíalo o dilo. Ya está en tu calendario.",
