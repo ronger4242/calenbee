@@ -81,7 +81,14 @@
   .store-btn:hover,.store-btn:focus-visible{background:var(--honey-soft)}
 
   footer{padding:44px 0 56px;text-align:center;color:var(--navy-soft);font-weight:600;font-size:.92rem}
-  footer a{font-weight:800}
+  footer a{font-weight:800;white-space:nowrap}
+  footer p{text-wrap:balance}
+
+  /* CJK + orphan control */
+  :lang(zh-CN){line-break:strict}
+  header.page h1,.cta h2,article .pull{text-wrap:balance}
+  article p,.cta p{text-wrap:pretty}
+  .kp{white-space:nowrap}
 </style>
 </head>
 <body>
@@ -112,7 +119,7 @@
 <article>
   <p data-i18n="p1">No more typing events into your calendar. Snap it — or just say it.</p>
   <p data-i18n="p2">School flyers, birthday invitations, handwritten notes — Calenbee turns any photo into calendar events. Or just tell it: "Chess class every Sunday 6–7pm until Dec 14." Done.</p>
-  <div class="pull" data-i18n="pull">I built Calenbee because, as a data scientist and a mom of two, I was tired of manually typing every school calendar and soccer schedule into my phone.</div>
+  <div class="pull" data-i18n="pull">I built Calenbee because, as a data scientist and a mom of two, I was tired of manually typing every school calendar and soccer schedule into <span class="kp">my phone.</span></div>
   <p data-i18n="p3">Every school year starts the same way: a stack of flyers, a soccer schedule, a class calendar taped to the fridge — and an evening lost to typing it all into a phone, one event at a time. Calenbee started as a small tool to get that evening back.</p>
   <p data-i18n="p4">It does one thing well: it reads whatever life hands you — a photo, a screenshot, a spoken sentence — finds the events inside, and puts them where they belong. You review everything before it touches your calendar. Nothing is added without your OK.</p>
   <p class="sig" data-i18n="sig">— Shengnan Zhao, creator of Calenbee</p>
@@ -120,7 +127,7 @@
 
 <div class="cta">
   <div class="box">
-    <h2 data-i18n="cta_h2">Try Calenbee free for a week</h2>
+    <h2 data-i18n="cta_h2">Try Calenbee free <span class="kp">for a week</span></h2>
     <p data-i18n="cta_p">Snap it or say it — it's on your calendar.</p>
     <a class="store-btn" href="https://apps.apple.com/us/app/calenbee/id6796809521" data-i18n="btn_store">Download on the App Store</a>
   </div>
@@ -141,11 +148,11 @@ const I18N = {
     sub: "Built by a parent, for parents. 🐝",
     p1: "No more typing events into your calendar. Snap it — or just say it.",
     p2: "School flyers, birthday invitations, handwritten notes — Calenbee turns any photo into calendar events. Or just tell it: \u201cChess class every Sunday 6–7pm until Dec 14.\u201d Done.",
-    pull: "I built Calenbee because, as a data scientist and a mom of two, I was tired of manually typing every school calendar and soccer schedule into my phone.",
+    pull: "I built Calenbee because, as a data scientist and a mom of two, I was tired of manually typing every school calendar and soccer schedule into <span class=\"kp\">my phone.</span>",
     p3: "Every school year starts the same way: a stack of flyers, a soccer schedule, a class calendar taped to the fridge — and an evening lost to typing it all into a phone, one event at a time. Calenbee started as a small tool to get that evening back.",
     p4: "It does one thing well: it reads whatever life hands you — a photo, a screenshot, a spoken sentence — finds the events inside, and puts them where they belong. You review everything before it touches your calendar. Nothing is added without your OK.",
     sig: "— Shengnan Zhao, creator of Calenbee",
-    cta_h2: "Try Calenbee free for a week",
+    cta_h2: "Try Calenbee free <span class=\"kp\">for a week</span>",
     cta_p: "Snap it or say it — it's on your calendar.",
     btn_store: "Download on the App Store"
   },
@@ -157,10 +164,10 @@ const I18N = {
     h1: "Calenbee 的由来",
     sub: "一位家长做给家长们的应用。🐝",
     p1: "再也不用手动输入日程。拍一下，或说一句就行。",
-    p2: "学校通知、生日邀请、手写便条——Calenbee 把任何照片变成日历日程。也可以直接告诉它：“国际象棋课，每周日 6–7 点，到 12 月 14 日。”就这么简单。",
-    pull: "我做 Calenbee，是因为作为一名数据科学家、两个孩子的妈妈，我实在受够了把每份学校日历和足球训练表一条条敲进手机。",
+    p2: "学校通知、<span class=\"kp\">生日邀请</span>、<span class=\"kp\">手写便条</span>——Calenbee 把任何照片变成<span class=\"kp\">日历日程</span>。也可以直接告诉它：“国际象棋课，每周日 6–7 点，到 12 月 14 日。”就这么简单。",
+    pull: "我做 Calenbee，是因为作为一名数据科学家、两个孩子的妈妈，我实在受够了把每份学校日历和足球训练表一条条<span class=\"kp\">敲进手机</span>。",
     p3: "每个学年的开始都一样：一摞通知单、一张足球赛程、贴在冰箱上的班级日历——然后花一整晚，把它们一条条敲进手机。Calenbee 最初就是为了把那个晚上找回来而做的小工具。",
-    p4: "它只专注做好一件事：读懂生活递给你的一切——一张照片、一张截图、一句话——找出其中的日程，放到该在的位置。所有内容都由你先确认，未经你同意不会添加任何日程。",
+    p4: "它只专注做好一件事：读懂生活递给你的一切——一张照片、一张截图、一句话——找出其中的日程，放到该在的位置。所有内容都由你先确认，未经你同意不会添加<span class=\"kp\">任何日程</span>。",
     sig: "— Shengnan Zhao，Calenbee 开发者",
     cta_h2: "免费试用 Calenbee 一周",
     cta_p: "拍一下或说一句——日程自动上日历。",
@@ -175,11 +182,11 @@ const I18N = {
     sub: "Creada por una madre, para padres. 🐝",
     p1: "No vuelvas a escribir eventos en tu calendario. Fotografíalo, o simplemente dilo.",
     p2: "Circulares escolares, invitaciones de cumpleaños, notas a mano: Calenbee convierte cualquier foto en eventos de calendario. O simplemente díselo: «Clase de ajedrez todos los domingos de 6 a 7pm hasta el 14 de dic». Listo.",
-    pull: "Creé Calenbee porque, como científica de datos y madre de dos, estaba cansada de escribir a mano cada calendario escolar y horario de fútbol en mi teléfono.",
+    pull: "Creé Calenbee porque, como científica de datos y madre de dos, estaba cansada de escribir a mano cada calendario escolar y horario de fútbol en <span class=\"kp\">mi teléfono</span>.",
     p3: "Cada año escolar empieza igual: un montón de circulares, un horario de fútbol, un calendario de clase pegado al refrigerador — y una tarde perdida escribiéndolo todo en el teléfono, evento por evento. Calenbee nació como una pequeña herramienta para recuperar esa tarde.",
     p4: "Hace una sola cosa, y la hace bien: lee lo que la vida te entregue — una foto, una captura, una frase dicha en voz alta —, encuentra los eventos y los pone donde corresponden. Tú revisas todo antes de que toque tu calendario. Nada se añade sin tu aprobación.",
     sig: "— Shengnan Zhao, creadora de Calenbee",
-    cta_h2: "Prueba Calenbee gratis una semana",
+    cta_h2: "Prueba Calenbee gratis <span class=\"kp\">una semana</span>",
     cta_p: "Fotografíalo o dilo: ya está en tu calendario.",
     btn_store: "Descargar en el App Store"
   }
